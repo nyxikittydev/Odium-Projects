@@ -146,7 +146,6 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, PWSTR, int nShow) {
     g_hwnd = CreateWindowExW(0, wc.lpszClassName, L"Odium Projects", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
                              rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInst, nullptr);
 
-    // Dark title bar (20 = DWMWA_USE_IMMERSIVE_DARK_MODE) and matching caption colour on Windows 11 (35 = DWMWA_CAPTION_COLOR).
     BOOL dark = TRUE;
     DwmSetWindowAttribute(g_hwnd, 20, &dark, sizeof(dark));
     COLORREF caption = RGB(8, 7, 11);
