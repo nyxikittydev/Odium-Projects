@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="OdiumProjects/ui/cat.png" width="72" alt="Odium cat" style="image-rendering: pixelated;">
+<img src="https://github.com/user-attachments/assets/1c7879e3-1eae-4c3c-887e-1a2aaafe25be" width="72" alt="Odium cat" style="image-rendering: pixelated;">
 
 # Odium Projects
 
@@ -11,7 +11,7 @@ Spin up a ready-to-build Android project in one click, keep all your projects in
 ![Language](https://img.shields.io/badge/C%2B%2B-17-ff2d4d?style=flat-square)
 ![UI](https://img.shields.io/badge/UI-WebView2-ff2d4d?style=flat-square)
 
-<img src="docs/projects.png" width="880" alt="Projects list">
+<img src="https://github.com/user-attachments/assets/efca634d-855f-4931-b962-35b320fe2082" width="880" alt="Projects list">
 
 </div>
 
@@ -30,9 +30,9 @@ Spin up a ready-to-build Android project in one click, keep all your projects in
 - **Small and native.** A Win32 C++ app: no Electron, no Qt, no runtime to bundle. The UI is plain HTML/CSS/JS rendered by Microsoft Edge WebView2.
 
 <div align="center">
-<img src="docs/new-project.png" width="430" alt="New project dialog">
+<img src="https://github.com/user-attachments/assets/99c67c45-e5ec-4d6c-8795-6b891f4f089c" width="430" alt="New project dialog">
 &nbsp;
-<img src="docs/settings.png" width="430" alt="Settings">
+<img src="https://github.com/user-attachments/assets/da6d2938-f5a2-4932-98ed-f06e4f4a8e9f" width="430" alt="Settings">
 </div>
 
 ## What a new project contains
