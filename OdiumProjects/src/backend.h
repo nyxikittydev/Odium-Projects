@@ -3,17 +3,16 @@
 
 struct Project {
     std::wstring name;
-    std::wstring path;     // native, normalised
+    std::wstring path;
     std::wstring package;
-    long long created = 0; // unix seconds
-    long long opened = 0;  // 0 = never opened
+    long long created = 0;
+    long long opened = 0; 
 };
 
 class Backend {
 public:
     explicit Backend(const fs::path &exeDir);
 
-    // Handles one request from the page and returns the full JSON reply (including the id).
     std::wstring handle(int id, const std::wstring &cmd, const std::vector<std::wstring> &args, HWND owner);
 
 private:
