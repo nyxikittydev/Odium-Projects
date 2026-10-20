@@ -52,7 +52,6 @@ fs::path findStudio() {
     }
     if (!local.empty()) {
         c.push_back(fs::path(local) / L"Programs/Android Studio/bin/studio64.exe");
-        // JetBrains Toolbox: AndroidStudio/ch-*/<version>/bin/studio64.exe (newest version first)
         for (const wchar_t *app : {L"AndroidStudio", L"android-studio"}) {
             fs::path base = fs::path(local) / L"JetBrains/Toolbox/apps" / app;
             std::error_code ec;
@@ -66,7 +65,6 @@ fs::path findStudio() {
             for (auto &v : vers) c.push_back(v / L"bin/studio64.exe");
         }
     }
-    // The official installer records its install folder in the registry.
     for (HKEY root : {HKEY_LOCAL_MACHINE, HKEY_CURRENT_USER}) {
         for (const wchar_t *sub : {L"SOFTWARE\\Android Studio", L"SOFTWARE\\WOW6432Node\\Android Studio"}) {
             wchar_t buf[MAX_PATH * 2];
@@ -105,7 +103,6 @@ const std::set<std::string> &reservedWords() {
     return w;
 }
 
-// Native folder / file picker. Returns an empty string if cancelled.
 std::wstring pickPath(HWND owner, bool folder, const std::wstring &start, const wchar_t *title) {
     ComPtr<IFileOpenDialog> dlg;
     if (FAILED(CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&dlg)))) return {};
@@ -131,7 +128,7 @@ std::wstring pickPath(HWND owner, bool folder, const std::wstring &start, const 
     return out;
 }
 
-} // namespace
+}
 
 Backend::Backend(const fs::path &exeDir) : m_exeDir(exeDir) {
     PWSTR roaming = nullptr;
