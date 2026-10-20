@@ -1,0 +1,24 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+
+# Build output
+bin/
+obj/
+x64/
+Debug/
+Release/
+*.pdb
+*.ilk
+
+# NuGet
+packages/
+
+# Installer output
+installer/output/
+
+# OS
+Thumbs.db
+.DS_Store

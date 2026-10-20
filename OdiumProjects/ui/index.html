@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odium Projects</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="glow"></div>
+<div id="scan"></div>
+
+<div id="app">
+  <aside id="side">
+    <div class="brand">
+      <img src="cat.png" alt="">
+      <div><b>ODIUM</b><small>PROJECTS</small></div>
+    </div>
+
+    <nav>
+      <button class="nav on" data-page="projects"><span class="ico" data-i="folder"></span><span class="lbl">Projects</span><i class="badge" id="count">0</i></button>
+      <button class="nav" data-page="settings"><span class="ico" data-i="sliders"></span><span class="lbl">Settings</span></button>
+    </nav>
+
+    <div class="grow"></div>
+    <button class="chip" id="chip"><i class="dot"></i><span id="chipText">Checking…</span></button>
+    <button class="btn pri big" id="newBtn"><span class="ico" data-i="plus"></span>New project</button>
+  </aside>
+
+  <main>
+    <section class="page on" id="page-projects">
+      <header class="ph">
+        <div class="ttl">
+          <div class="h1row"><h1>PROJECTS</h1><sup id="total">0</sup></div>
+          <div class="bar"></div>
+          <p>Click a project to open it in Android Studio</p>
+        </div>
+        <div class="tools">
+          <label class="search"><span class="ico acc" data-i="search"></span><input id="q" placeholder="Search projects" spellcheck="false" autocomplete="off"></label>
+          <button class="btn" id="importBtn"><span class="ico" data-i="import"></span>Import</button>
+        </div>
+      </header>
+
+      <div id="list"></div>
+
+      <div id="empty" hidden>
+        <img src="cat.png" alt="">
+        <h2 id="emptyTitle">NO PROJECTS YET</h2>
+        <p id="emptyText">Create a starter project, or import one you already have.</p>
+        <div class="row" id="emptyBtns">
+          <button class="btn pri" id="emptyNew"><span class="ico" data-i="plus"></span>Create your first project</button>
+          <button class="btn" id="emptyImport"><span class="ico" data-i="import"></span>Import existing</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-settings">
+      <header class="ph"><div class="ttl"><div class="h1row"><h1>SETTINGS</h1></div><div class="bar"></div></div></header>
+      <div class="settings">
+        <div class="group">
+          <h3>Android Studio</h3>
+          <div class="card">
+            <label class="fld"><span>Location</span>
+              <div class="inrow">
+                <input id="sStudio" class="mono" spellcheck="false" placeholder="C:\Program Files\Android\Android Studio\bin\studio64.exe">
+                <button class="sq" id="sStudioBrowse" title="Browse"><span class="ico" data-i="folder"></span></button>
+              </div>
+            </label>
+            <div class="status"><i class="dot" id="sDot"></i><span id="sStatus"></span><button class="btn" id="sDetect">Auto-detect</button></div>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>New project defaults</h3>
+          <div class="card">
+            <label class="fld"><span>Save new projects in</span>
+              <div class="inrow">
+                <input id="sLoc" class="mono" spellcheck="false">
+                <button class="sq" id="sLocBrowse" title="Browse"><span class="ico" data-i="folder"></span></button>
+              </div>
+            </label>
+            <label class="fld"><span>Package name prefix</span>
+              <div class="inrow"><input id="sPrefix" class="mono" spellcheck="false" placeholder="com.example"></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="group">
+          <h3>Accent color</h3>
+          <div class="card"><div class="swatches" id="swatches"></div></div>
+        </div>
+
+        <p class="foot" id="dataPath"></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- New project dialog -->
+<div class="overlay" id="newDlg" hidden>
+  <div class="dlg">
+    <div class="dtop"><h2>NEW PROJECT</h2><button class="sq round" id="dClose" title="Close"><span class="ico" data-i="x"></span></button></div>
+
+    <label class="fld"><span>App name</span>
+      <div class="inrow"><input id="dName" placeholder="My Cool App" spellcheck="false" autocomplete="off"></div>
+    </label>
+    <label class="fld"><span>Package name</span>
+      <div class="inrow"><input id="dPkg" class="mono" spellcheck="false" autocomplete="off"></div>
+    </label>
+    <label class="fld"><span>Location</span>
+      <div class="inrow">
+        <input id="dLoc" class="mono" spellcheck="false" autocomplete="off">
+        <button class="sq" id="dBrowse" title="Browse" type="button"><span class="ico" data-i="folder"></span></button>
+      </div>
+    </label>
+
+    <div class="two">
+      <div class="fld"><span>Language</span><div class="seg" id="segLang"><button class="on" data-v="java">Java</button><button data-v="kotlin">Kotlin</button></div></div>
+      <div class="fld"><span>Minimum SDK</span><div class="seg" id="segSdk"><button class="on" data-v="26">API 26</button><button data-v="28">API 28</button><button data-v="30">API 30</button><button data-v="33">API 33</button></div></div>
+    </div>
+
+    <div class="tg" id="tgWf"><div><b>GitHub Actions workflow</b><small>Adds a build.yml that produces a debug APK on every push</small></div><i class="sw"></i></div>
+    <div class="tg on" id="tgOpen"><div><b>Open in Android Studio when done</b></div><i class="sw"></i></div>
+
+    <div class="preview" id="dPreview"></div>
+    <div class="err" id="dErr" hidden></div>
+
+    <div class="dbtns"><button class="btn" id="dCancel">Cancel</button><button class="btn pri" id="dCreate"><span class="ico" data-i="plus"></span>Create project</button></div>
+  </div>
+</div>
+
+<!-- Remove / delete dialog -->
+<div class="overlay" id="confirmDlg" hidden>
+  <div class="dlg small">
+    <h2 id="cTitle">REMOVE?</h2>
+    <p class="muted">“Remove from list” keeps your files on disk. “Delete from disk” permanently deletes the whole project folder.</p>
+    <div class="dbtns spread">
+      <button class="btn" id="cCancel">Cancel</button>
+      <div class="row"><button class="btn" id="cRemove">Remove from list</button><button class="btn danger" id="cDelete"><span class="ico" data-i="trash"></span>Delete from disk</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"><span class="ico" id="toastIco"></span><span id="toastText"></span></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">__APP_NAME_XML__</string>
+    <string name="hello">Hello from __APP_NAME_XML__</string>
+</resources>

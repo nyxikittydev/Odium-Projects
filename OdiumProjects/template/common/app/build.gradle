@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+    __KOTLIN_APP_PLUGIN__
+}
+
+android {
+    namespace '__PACKAGE__'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId '__PACKAGE__'
+        minSdk __MIN_SDK__
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    __KOTLIN_OPTIONS__
+    lint { abortOnError false }
+}
+
+dependencies {
+    // Add your libraries here, e.g.
+    // implementation 'androidx.appcompat:appcompat:1.7.0'
+}
